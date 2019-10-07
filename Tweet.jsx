@@ -1,6 +1,11 @@
 function Tweet(props) {
-    return (
-        <div className="tweet">
+  // Reactからこのコンポーネントの
+  // like値と、likeの値をセットするための関数を取り出す
+  // デフォルト値はfalseにする
+  const [liked, setLike] = React.useState(false);
+
+  return (
+    <div className="tweet">
       <div className="icon-container">{props.icon}</div>
       <div className="body-container">
         <div className="status-display">
@@ -8,7 +13,10 @@ function Tweet(props) {
           <span className="account-name">@{props.accountName}</span>
         </div>
         <div className="content">{props.content}</div>
+        <div className="status-action">
+          <span>{liked ? '' : '♡'}</span>
+        </div>
       </div>
     </div>
-    );
-  }
+  );
+}
